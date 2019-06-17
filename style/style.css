@@ -1,5 +1,7 @@
-#canvas {
-  width: 608px;
-  height: 608px;
+#moving-block {
+  width: 70px;
+  height: 70px;
+  background: green;
+  position: fixed;
 }
 /*# sourceMappingURL=style.css.map */
