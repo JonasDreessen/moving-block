@@ -4,6 +4,8 @@ body {
   background-image: url("../image/gym-equipment.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 .arnold-gym {
@@ -28,7 +30,7 @@ body {
 #food-block {
   width: 150px;
   height: 150px;
-  position: fixed;
+  position: absolute;
 }
 
 #food-block img {
