@@ -8,9 +8,9 @@ var scoopies = 0
 var aantalScoopies = document.getElementById("aantal-scoopies");
 var foodBlockPosition = foodBlock.getBoundingClientRect();
 
-function eatMe(){
+function eatMe() {
     // get position of the moving-block
-var eatingElement = document.getElementById('moving-block').getBoundingClientRect();
+    var eatingElement = document.getElementById('moving-block').getBoundingClientRect();
     var eatTop = eatingElement.top;
     var eatLeft = eatingElement.left;
     var eatRight = eatingElement.right;
@@ -27,58 +27,86 @@ var eatingElement = document.getElementById('moving-block').getBoundingClientRec
     var RandomNumberTop = Math.floor(Math.random() * 100);
     var RandomNumberBottom = Math.floor(Math.random() * 100);
 
-    if(eatTop <= foodTop && eatLeft <= foodLeft && eatRight >= foodRight && eatBottom >= foodBottom  ){
+    if (eatTop <= foodTop && eatLeft <= foodLeft && eatRight >= foodRight && eatBottom >= foodBottom) {
 
 
         foodBlock.style.left = RandomNumberLeft + "%";
         foodBlock.style.right = RandomNumberRight + "%";
         foodBlock.style.top = RandomNumberTop + "%";
         foodBlock.style.bottom = RandomNumberBottom + "%";
-        scoopies ++; 
+        scoopies++;
         aantalScoopies.innerHTML = scoopies;
-        console.log(scoopies);
-    }
+
+    } /* if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
+        foodBlock.style.left = RandomNumberLeft + "%";
+        foodBlock.style.right = RandomNumberRight + "%";
+        foodBlock.style.top = RandomNumberTop + "%";
+        foodBlock.style.bottom = RandomNumberBottom + "%";
+        scoopies++;
+        aantalScoopies.innerHTML = scoopies;
+    } if (eatTop >= foodTop && eatLeft >= foodLeft && eatRight >= foodRight && eatBottom <= foodBottom) {
+        foodBlock.style.left = RandomNumberLeft + "%";
+        foodBlock.style.right = RandomNumberRight + "%";
+        foodBlock.style.top = RandomNumberTop + "%";
+        foodBlock.style.bottom = RandomNumberBottom + "%";
+        scoopies++;
+        aantalScoopies.innerHTML = scoopies;
+    } if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
+        foodBlock.style.left = RandomNumberLeft + "%";
+        foodBlock.style.right = RandomNumberRight + "%";
+        foodBlock.style.top = RandomNumberTop + "%";
+        foodBlock.style.bottom = RandomNumberBottom + "%";
+        scoopies++;
+        aantalScoopies.innerHTML = scoopies;
+    } if (eatTop >= foodTop && eatLeft <= foodLeft && eatRight <= foodRight && eatBottom <= foodBottom) {
+        foodBlock.style.left = RandomNumberLeft + "%";
+        foodBlock.style.right = RandomNumberRight + "%";
+        foodBlock.style.top = RandomNumberTop + "%";
+        foodBlock.style.bottom = RandomNumberBottom + "%";
+        scoopies++;
+        aantalScoopies.innerHTML = scoopies;
+    }*/
 }
 
 function direction(e) {
     // if right arrow is pressed
-    if (e.keyCode === 39){
+    if (e.keyCode === 39) {
         goRight();
-    // if left arrow is pressed
-    } else if (e.keyCode === 37){
+        // if left arrow is pressed
+    } else if (e.keyCode === 37) {
         goLeft();
-    // if down arrow is pressed
-    } else if (e.keyCode === 40){
+        // if down arrow is pressed
+    } else if (e.keyCode === 40) {
         goDown();
-    // if up arrow is pressed
-    } else if (e.keyCode === 38){
+        // if up arrow is pressed
+    } else if (e.keyCode === 38) {
         goUp();
     }
 }
 
 // Makes the eatingBlock go right
-function goRight(){
+function goRight() {
     positionEatingBlockX += 5;
     eatingBlock.style.left = positionEatingBlockX + "%";
     eatMe();
 }
 
 // Makes the eatingBlock go left
-function goLeft(){
+function goLeft() {
     positionEatingBlockX -= 5;
     eatingBlock.style.left = positionEatingBlockX + "%";
     eatMe();
 }
 
 // Makes the eatingBlock go down
-function goDown(){
+function goDown() {
     positionEatingBlockY += 5;
     eatingBlock.style.top = positionEatingBlockY + "%";
     eatMe();
 }
 
 // Makes the eatingBlock go up
-function goUp(){
+function goUp() {
     positionEatingBlockY -= 5;
     eatingBlock.style.top = positionEatingBlockY + "%";
     eatMe();
