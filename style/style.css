@@ -4,4 +4,11 @@
   background: green;
   position: fixed;
 }
+
+#food-block {
+  width: 30px;
+  height: 30px;
+  background: red;
+  position: fixed;
+}
 /*# sourceMappingURL=style.css.map */
