@@ -21,14 +21,36 @@ function eatMe() {
     var foodLeft = foodElement.left;
     var foodRight = foodElement.right;
     var foodBottom = foodElement.bottom;
+
     // Generate random number 
     var RandomNumberLeft = Math.floor(Math.random() * 100);
     var RandomNumberRight = Math.floor(Math.random() * 100);
     var RandomNumberTop = Math.floor(Math.random() * 100);
     var RandomNumberBottom = Math.floor(Math.random() * 100);
 
+
+    // get window size of current screen
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+
+    // calculate the percentage of the food relative to the viewport 
+    var widthPercentageLeft = Math.floor((foodLeft / windowWidth) * 100);
+    var widthPercentageRight = Math.floor((foodRight / windowWidth) * 100);
+    var heightPercentageTop = Math.floor((foodTop / windowHeight) * 100);
+    var heightPercentageBottom = Math.floor((foodBottom / windowHeight) * 100);
+ 
+
+
     if (eatTop <= foodTop && eatLeft <= foodLeft && eatRight >= foodRight && eatBottom >= foodBottom) {
 
+        var leftStyle = foodBlock.style.left;
+        var topStyle = foodBlock.style.top;
+        var makeItANumberLeft = parseInt(leftStyle, 10);
+        var makeItANumberTop = parseInt(topStyle, 10);
+        var combinedStylingLeft = makeItANumberLeft + RandomNumberLeft;
+        var combinedStylingTop = makeItANumberTop + RandomNumberTop;
+
+        console.log(combinedStylingLeft, combinedStylingTop);
 
         foodBlock.style.left = RandomNumberLeft + "%";
         foodBlock.style.right = RandomNumberRight + "%";
@@ -37,35 +59,36 @@ function eatMe() {
         scoopies++;
         aantalScoopies.innerHTML = scoopies;
 
-    } /* if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
-        foodBlock.style.left = RandomNumberLeft + "%";
-        foodBlock.style.right = RandomNumberRight + "%";
-        foodBlock.style.top = RandomNumberTop + "%";
-        foodBlock.style.bottom = RandomNumberBottom + "%";
-        scoopies++;
-        aantalScoopies.innerHTML = scoopies;
-    } if (eatTop >= foodTop && eatLeft >= foodLeft && eatRight >= foodRight && eatBottom <= foodBottom) {
-        foodBlock.style.left = RandomNumberLeft + "%";
-        foodBlock.style.right = RandomNumberRight + "%";
-        foodBlock.style.top = RandomNumberTop + "%";
-        foodBlock.style.bottom = RandomNumberBottom + "%";
-        scoopies++;
-        aantalScoopies.innerHTML = scoopies;
-    } if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
-        foodBlock.style.left = RandomNumberLeft + "%";
-        foodBlock.style.right = RandomNumberRight + "%";
-        foodBlock.style.top = RandomNumberTop + "%";
-        foodBlock.style.bottom = RandomNumberBottom + "%";
-        scoopies++;
-        aantalScoopies.innerHTML = scoopies;
-    } if (eatTop >= foodTop && eatLeft <= foodLeft && eatRight <= foodRight && eatBottom <= foodBottom) {
-        foodBlock.style.left = RandomNumberLeft + "%";
-        foodBlock.style.right = RandomNumberRight + "%";
-        foodBlock.style.top = RandomNumberTop + "%";
-        foodBlock.style.bottom = RandomNumberBottom + "%";
-        scoopies++;
-        aantalScoopies.innerHTML = scoopies;
-    }*/
+    }
+    /* if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
+           foodBlock.style.left = RandomNumberLeft + "%";
+           foodBlock.style.right = RandomNumberRight + "%";
+           foodBlock.style.top = RandomNumberTop + "%";
+           foodBlock.style.bottom = RandomNumberBottom + "%";
+           scoopies++;
+           aantalScoopies.innerHTML = scoopies;
+       } if (eatTop >= foodTop && eatLeft >= foodLeft && eatRight >= foodRight && eatBottom <= foodBottom) {
+           foodBlock.style.left = RandomNumberLeft + "%";
+           foodBlock.style.right = RandomNumberRight + "%";
+           foodBlock.style.top = RandomNumberTop + "%";
+           foodBlock.style.bottom = RandomNumberBottom + "%";
+           scoopies++;
+           aantalScoopies.innerHTML = scoopies;
+       } if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
+           foodBlock.style.left = RandomNumberLeft + "%";
+           foodBlock.style.right = RandomNumberRight + "%";
+           foodBlock.style.top = RandomNumberTop + "%";
+           foodBlock.style.bottom = RandomNumberBottom + "%";
+           scoopies++;
+           aantalScoopies.innerHTML = scoopies;
+       } if (eatTop >= foodTop && eatLeft <= foodLeft && eatRight <= foodRight && eatBottom <= foodBottom) {
+           foodBlock.style.left = RandomNumberLeft + "%";
+           foodBlock.style.right = RandomNumberRight + "%";
+           foodBlock.style.top = RandomNumberTop + "%";
+           foodBlock.style.bottom = RandomNumberBottom + "%";
+           scoopies++;
+           aantalScoopies.innerHTML = scoopies;
+       }*/
 }
 
 function direction(e) {
@@ -86,37 +109,37 @@ function direction(e) {
 
 // Makes the eatingBlock go right
 function goRight() {
-    if (positionEatingBlockX <= 85){
-    positionEatingBlockX += 5;
-    eatingBlock.style.left = positionEatingBlockX + "%";
-    eatMe();
+    if (positionEatingBlockX <= 85) {
+        positionEatingBlockX += 5;
+        eatingBlock.style.left = positionEatingBlockX + "%";
+        eatMe();
     }
 }
 
 // Makes the eatingBlock go left
 function goLeft() {
-    if(positionEatingBlockX >= 5){
-    positionEatingBlockX -= 5;
-    eatingBlock.style.left = positionEatingBlockX + "%";
-    eatMe();
+    if (positionEatingBlockX >= 5) {
+        positionEatingBlockX -= 5;
+        eatingBlock.style.left = positionEatingBlockX + "%";
+        eatMe();
     }
 }
 
 // Makes the eatingBlock go down
 function goDown() {
-    if (positionEatingBlockY <= 85){
-    positionEatingBlockY += 5;
-    eatingBlock.style.top = positionEatingBlockY + "%";
-    eatMe();
+    if (positionEatingBlockY <= 85) {
+        positionEatingBlockY += 5;
+        eatingBlock.style.top = positionEatingBlockY + "%";
+        eatMe();
     }
 }
 
 // Makes the eatingBlock go up
 function goUp() {
-    if (positionEatingBlockY >= 5){
-    positionEatingBlockY -= 5;
-    eatingBlock.style.top = positionEatingBlockY + "%";
-    eatMe();
+    if (positionEatingBlockY >= 5) {
+        positionEatingBlockY -= 5;
+        eatingBlock.style.top = positionEatingBlockY + "%";
+        eatMe();
     }
 }
 document.onkeydown = direction;
