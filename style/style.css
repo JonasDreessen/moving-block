@@ -1,24 +1,25 @@
 body {
   width: 100%;
   height: 100%;
-  background-image: url("../image/gym-equipment.jpg");
+  background-color: darkgreen;
+  background-image: url("../image/cartoon-jungle .jpg");
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100vw;
   max-height: 100vh;
+  overflow: hidden;
 }
 
-.arnold-gym {
-  width: 300px;
-  height: auto;
-  position: fixed;
-  z-index: -1;
-  left: 20%;
-}
-
+/* .arnold-gym{
+    width: 300px;
+    height: auto;
+    position: fixed; 
+    z-index: -1;
+    left: 20%;
+} */
 #moving-block {
-  width: 300px;
-  height: 300px;
+  width: 10%;
+  height: 15%;
   position: fixed;
 }
 
@@ -28,9 +29,10 @@ body {
 }
 
 #food-block {
-  width: 150px;
-  height: 150px;
-  position: absolute;
+  width: 5%;
+  height: 10%;
+  position: fixed;
+  z-index: -1;
 }
 
 #food-block img {

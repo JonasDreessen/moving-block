@@ -86,29 +86,37 @@ function direction(e) {
 
 // Makes the eatingBlock go right
 function goRight() {
+    if (positionEatingBlockX <= 85){
     positionEatingBlockX += 5;
     eatingBlock.style.left = positionEatingBlockX + "%";
     eatMe();
+    }
 }
 
 // Makes the eatingBlock go left
 function goLeft() {
+    if(positionEatingBlockX >= 5){
     positionEatingBlockX -= 5;
     eatingBlock.style.left = positionEatingBlockX + "%";
     eatMe();
+    }
 }
 
 // Makes the eatingBlock go down
 function goDown() {
+    if (positionEatingBlockY <= 85){
     positionEatingBlockY += 5;
     eatingBlock.style.top = positionEatingBlockY + "%";
     eatMe();
+    }
 }
 
 // Makes the eatingBlock go up
 function goUp() {
+    if (positionEatingBlockY >= 5){
     positionEatingBlockY -= 5;
     eatingBlock.style.top = positionEatingBlockY + "%";
     eatMe();
+    }
 }
 document.onkeydown = direction;
