@@ -16,6 +16,7 @@ function eatMe() {
     var eatRight = eatingElement.right;
     var eatBottom = eatingElement.bottom;
 
+
     // get position of the food-block
     var foodElement = document.getElementById('food-block').getBoundingClientRect();
     var foodTop = foodElement.top;
@@ -27,80 +28,52 @@ function eatMe() {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
 
-
     // Generate random number 
     var RandomNumberLeft = Math.floor(Math.random() * windowWidth);
     var RandomNumberRight = Math.floor(Math.random() * windowWidth);
     var RandomNumberTop = Math.floor(Math.random() * windowHeight);
     var RandomNumberBottom = Math.floor(Math.random() * windowHeight);
 
-
-    
     // calculate the percentage of the food relative to the viewport 
     var widthPercentageLeft = Math.floor((RandomNumberLeft / windowWidth) * 100);
     var widthPercentageRight = Math.floor((RandomNumberRight / windowWidth) * 100);
     var heightPercentageTop = Math.floor((RandomNumberTop / windowHeight) * 100);
     var heightPercentageBottom = Math.floor((RandomNumberBottom / windowHeight) * 100);
 
-    console.log(widthPercentageLeft,widthPercentageRight,heightPercentageBottom,heightPercentageTop);
+//  Below i'm finding out if I can program a collision detection
+/*
+    var eatingBlockWidth = Math.floor((windowWidth / 100) * 10);
+    var eatingBlockHeight = Math.floor((windowHeight / 100) * 15);
 
+    var foodBlockWidth = Math.floor((windowWidth / 100) * 5);
+    var foodblockHeight = Math.floor((windowHeight / 100) * 10);
 
+    console.log(eatingBlockWidth, eatingBlockHeight, foodBlockWidth, foodblockHeight);
+    console.log(eatLeft. eatTop, widthPercentageLeft, heightPercentageTop);
+
+    var rect1 = {x: eatLeft, y: eatTop, width: eatingBlockWidth, height: eatingBlockHeight}
+    var rect2 = {x: widthPercentageLeft, y: heightPercentageTop, width: foodBlockWidth, height: foodblockHeight}
+    
+    if (rect1.x < rect2.x + rect2.width &&
+       rect1.x + rect1.width > rect2.x &&
+       rect1.y < rect2.y + rect2.height &&
+       rect1.y + rect1.height > rect2.y) {
+        // collision detected!
+        console.log("hi");
+    }
+
+// end of find out collision. 
+*/
 
     if (eatTop <= foodTop && eatLeft <= foodLeft && eatRight >= foodRight && eatBottom >= foodBottom) {
-        /*
-        // create variables for style 
-        var leftStyle = foodBlock.style.left;
-        var topStyle = foodBlock.style.top;
-        // make the percentage of the style in to a number
-        var makeItANumberLeft = parseInt(leftStyle, 10);
-        var makeItANumberTop = parseInt(topStyle, 10);
-
-        // combine the integer with the random number that is generated
-        var combinedStylingLeft = makeItANumberLeft + RandomNumberLeft;
-        var combinedStylingRight = makeItANumberLeft - RandomNumberRight;
-        var combinedStylingTop = makeItANumberTop + RandomNumberTop;
-        var combinedStylingBottom = makeItANumberTop - RandomNumberBottom; */
-
+    
         foodBlock.style.left = widthPercentageLeft + "%";
         foodBlock.style.right = widthPercentageRight + "%";
         foodBlock.style.top = heightPercentageTop + "%";
         foodBlock.style.bottom = heightPercentageBottom + "%";
         scoopies++;
         aantalScoopies.innerHTML = scoopies;
-
-
-
-
     }
-    /* if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
-           foodBlock.style.left = RandomNumberLeft + "%";
-           foodBlock.style.right = RandomNumberRight + "%";
-           foodBlock.style.top = RandomNumberTop + "%";
-           foodBlock.style.bottom = RandomNumberBottom + "%";
-           scoopies++;
-           aantalScoopies.innerHTML = scoopies;
-       } if (eatTop >= foodTop && eatLeft >= foodLeft && eatRight >= foodRight && eatBottom <= foodBottom) {
-           foodBlock.style.left = RandomNumberLeft + "%";
-           foodBlock.style.right = RandomNumberRight + "%";
-           foodBlock.style.top = RandomNumberTop + "%";
-           foodBlock.style.bottom = RandomNumberBottom + "%";
-           scoopies++;
-           aantalScoopies.innerHTML = scoopies;
-       } if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
-           foodBlock.style.left = RandomNumberLeft + "%";
-           foodBlock.style.right = RandomNumberRight + "%";
-           foodBlock.style.top = RandomNumberTop + "%";
-           foodBlock.style.bottom = RandomNumberBottom + "%";
-           scoopies++;
-           aantalScoopies.innerHTML = scoopies;
-       } if (eatTop >= foodTop && eatLeft <= foodLeft && eatRight <= foodRight && eatBottom <= foodBottom) {
-           foodBlock.style.left = RandomNumberLeft + "%";
-           foodBlock.style.right = RandomNumberRight + "%";
-           foodBlock.style.top = RandomNumberTop + "%";
-           foodBlock.style.bottom = RandomNumberBottom + "%";
-           scoopies++;
-           aantalScoopies.innerHTML = scoopies;
-       }*/
 }
 
 function direction(e) {
