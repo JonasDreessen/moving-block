@@ -15,6 +15,7 @@ function eatMe() {
     var eatLeft = eatingElement.left;
     var eatRight = eatingElement.right;
     var eatBottom = eatingElement.bottom;
+
     // get position of the food-block
     var foodElement = document.getElementById('food-block').getBoundingClientRect();
     var foodTop = foodElement.top;
@@ -22,42 +23,53 @@ function eatMe() {
     var foodRight = foodElement.right;
     var foodBottom = foodElement.bottom;
 
-    // Generate random number 
-    var RandomNumberLeft = Math.floor(Math.random() * 100);
-    var RandomNumberRight = Math.floor(Math.random() * 100);
-    var RandomNumberTop = Math.floor(Math.random() * 100);
-    var RandomNumberBottom = Math.floor(Math.random() * 100);
-
-
     // get window size of current screen
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
 
+
+    // Generate random number 
+    var RandomNumberLeft = Math.floor(Math.random() * windowWidth);
+    var RandomNumberRight = Math.floor(Math.random() * windowWidth);
+    var RandomNumberTop = Math.floor(Math.random() * windowHeight);
+    var RandomNumberBottom = Math.floor(Math.random() * windowHeight);
+
+
+    
     // calculate the percentage of the food relative to the viewport 
-    var widthPercentageLeft = Math.floor((foodLeft / windowWidth) * 100);
-    var widthPercentageRight = Math.floor((foodRight / windowWidth) * 100);
-    var heightPercentageTop = Math.floor((foodTop / windowHeight) * 100);
-    var heightPercentageBottom = Math.floor((foodBottom / windowHeight) * 100);
- 
+    var widthPercentageLeft = Math.floor((RandomNumberLeft / windowWidth) * 100);
+    var widthPercentageRight = Math.floor((RandomNumberRight / windowWidth) * 100);
+    var heightPercentageTop = Math.floor((RandomNumberTop / windowHeight) * 100);
+    var heightPercentageBottom = Math.floor((RandomNumberBottom / windowHeight) * 100);
+
+    console.log(widthPercentageLeft,widthPercentageRight,heightPercentageBottom,heightPercentageTop);
+
 
 
     if (eatTop <= foodTop && eatLeft <= foodLeft && eatRight >= foodRight && eatBottom >= foodBottom) {
-
+        /*
+        // create variables for style 
         var leftStyle = foodBlock.style.left;
         var topStyle = foodBlock.style.top;
+        // make the percentage of the style in to a number
         var makeItANumberLeft = parseInt(leftStyle, 10);
         var makeItANumberTop = parseInt(topStyle, 10);
+
+        // combine the integer with the random number that is generated
         var combinedStylingLeft = makeItANumberLeft + RandomNumberLeft;
+        var combinedStylingRight = makeItANumberLeft - RandomNumberRight;
         var combinedStylingTop = makeItANumberTop + RandomNumberTop;
+        var combinedStylingBottom = makeItANumberTop - RandomNumberBottom; */
 
-        console.log(combinedStylingLeft, combinedStylingTop);
-
-        foodBlock.style.left = RandomNumberLeft + "%";
-        foodBlock.style.right = RandomNumberRight + "%";
-        foodBlock.style.top = RandomNumberTop + "%";
-        foodBlock.style.bottom = RandomNumberBottom + "%";
+        foodBlock.style.left = widthPercentageLeft + "%";
+        foodBlock.style.right = widthPercentageRight + "%";
+        foodBlock.style.top = heightPercentageTop + "%";
+        foodBlock.style.bottom = heightPercentageBottom + "%";
         scoopies++;
         aantalScoopies.innerHTML = scoopies;
+
+
+
 
     }
     /* if (eatTop <= foodTop && eatLeft >= foodLeft && eatRight <= foodRight && eatBottom >= foodBottom) {
@@ -109,7 +121,7 @@ function direction(e) {
 
 // Makes the eatingBlock go right
 function goRight() {
-    if (positionEatingBlockX <= 85) {
+    if (positionEatingBlockX <= 90) {
         positionEatingBlockX += 5;
         eatingBlock.style.left = positionEatingBlockX + "%";
         eatMe();
@@ -127,7 +139,7 @@ function goLeft() {
 
 // Makes the eatingBlock go down
 function goDown() {
-    if (positionEatingBlockY <= 85) {
+    if (positionEatingBlockY <= 90) {
         positionEatingBlockY += 5;
         eatingBlock.style.top = positionEatingBlockY + "%";
         eatMe();
