@@ -51,7 +51,7 @@ function eatMe() {
     var rect1 = {x: eatLeft, y: eatTop, width: eatingBlockWidth, height: eatingBlockHeight}
     var rect2 = {x: foodLeft, y: foodTop, width: foodBlockWidth, height: foodblockHeight}
     
-    // Declaring when rectangles are colliding
+    // Declaring when rectangles are in collision
     if (rect1.x < rect2.x + rect2.width &&
        rect1.x + rect1.width > rect2.x &&
        rect1.y < rect2.y + rect2.height &&
