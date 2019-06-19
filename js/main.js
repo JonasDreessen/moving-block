@@ -35,38 +35,29 @@ function eatMe() {
     var RandomNumberBottom = Math.floor(Math.random() * windowHeight);
 
     // calculate the percentage of the food relative to the viewport 
-    var widthPercentageLeft = Math.floor((RandomNumberLeft / windowWidth) * 100);
-    var widthPercentageRight = Math.floor((RandomNumberRight / windowWidth) * 100);
-    var heightPercentageTop = Math.floor((RandomNumberTop / windowHeight) * 100);
-    var heightPercentageBottom = Math.floor((RandomNumberBottom / windowHeight) * 100);
+    var widthPercentageLeft = Math.floor((RandomNumberLeft / windowWidth) * 95);
+    var widthPercentageRight = Math.floor((RandomNumberRight / windowWidth) * 95);
+    var heightPercentageTop = Math.floor((RandomNumberTop / windowHeight) * 95);
+    var heightPercentageBottom = Math.floor((RandomNumberBottom / windowHeight) * 95);
 
-//  Below i'm finding out if I can program a collision detection
-/*
+// Collision detection below. 
+    // Make the percentages in css convert to "normal" numbers for the food-block and the eating-block
     var eatingBlockWidth = Math.floor((windowWidth / 100) * 10);
     var eatingBlockHeight = Math.floor((windowHeight / 100) * 15);
-
     var foodBlockWidth = Math.floor((windowWidth / 100) * 5);
     var foodblockHeight = Math.floor((windowHeight / 100) * 10);
 
-    console.log(eatingBlockWidth, eatingBlockHeight, foodBlockWidth, foodblockHeight);
-    console.log(eatLeft. eatTop, widthPercentageLeft, heightPercentageTop);
-
+    // Declare the 2 "rectangles" that the code must watch out for if they collide
     var rect1 = {x: eatLeft, y: eatTop, width: eatingBlockWidth, height: eatingBlockHeight}
-    var rect2 = {x: widthPercentageLeft, y: heightPercentageTop, width: foodBlockWidth, height: foodblockHeight}
+    var rect2 = {x: foodLeft, y: foodTop, width: foodBlockWidth, height: foodblockHeight}
     
+    // Declaring when rectangles are colliding
     if (rect1.x < rect2.x + rect2.width &&
        rect1.x + rect1.width > rect2.x &&
        rect1.y < rect2.y + rect2.height &&
        rect1.y + rect1.height > rect2.y) {
-        // collision detected!
-        console.log("hi");
-    }
 
-// end of find out collision. 
-*/
-
-    if (eatTop <= foodTop && eatLeft <= foodLeft && eatRight >= foodRight && eatBottom >= foodBottom) {
-    
+        // When rectangles colide, below code makes the food change position. 
         foodBlock.style.left = widthPercentageLeft + "%";
         foodBlock.style.right = widthPercentageRight + "%";
         foodBlock.style.top = heightPercentageTop + "%";
@@ -75,6 +66,7 @@ function eatMe() {
         aantalScoopies.innerHTML = scoopies;
     }
 }
+// end collision detection. 
 
 function direction(e) {
     // if right arrow is pressed
