@@ -23,7 +23,7 @@ function eatMe() {
     var foodLeft = foodElement.left;
     var foodRight = foodElement.right;
     var foodBottom = foodElement.bottom;
-
+    
     // get window size of current screen
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
